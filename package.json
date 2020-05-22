@@ -1,0 +1,19 @@
+{
+  "name": "xtreamlogger",
+  "version": "1.0.0",
+  "description": "simple logger class easily extendibly for different sinks",
+  "main": "consoleLogger.js",
+  "scripts": {
+    "test": "node loggingTests.js"
+  },
+  "keywords": [
+    "logging",
+    "sinks"
+  ],
+  "author": "marcin",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.5",
+    "moment": "^2.25.1"
+  }
+}
