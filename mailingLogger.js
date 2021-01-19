@@ -51,13 +51,40 @@ class MailingLogger extends logger.Logger
     this.sgMailIns.setApiKey(mailingLoggerOptions.sendGridApiKey);
   }
 
+  getMailColor(logLevel)
+  {
+    let htmlColorName;
+    switch (logLevel) 
+    {
+      case 'info':
+        htmlColorName = "DarkSlateGray";
+        break;    
+      case 'debug':
+        htmlColorName = "RoyalBlue";
+        break;
+      case 'warning':
+        htmlColorName = "SlateBlue";
+        break;  
+      case 'error':
+        htmlColorName = "Tomato"
+        break;  
+      case 'fatal':
+        htmlColorName = "Red"
+        break;  
+      case 'notset':
+      default:
+      htmlColorName = "DarkSeaGreen";
+      break;
+    }
+    return htmlColorName;
+  }
 
   sinkIt(message, logLevelCall)
   {
     //TODO: change style depeding on logging level
 
     const htmlConent = "<div style=\"font-family:    CalibriLight, Helvetica;font-size:      30px;"
-                    + "                font-weight:    bold;color:    blue;\">"
+                    + "                font-weight:    bold;color:    " + this.getMailColor(logLevelCall) + ";\">"
                     + "<strong>Received the following logs of the category " + logLevelCall + " from Raspberry Pi:</strong>"
                     + "<br></br><br></br>" + message + "</div";
 
